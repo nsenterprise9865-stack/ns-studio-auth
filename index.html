@@ -179,7 +179,8 @@
     </div>
 
     <script>
-        const DEEP_LINK_SCHEME = 'com.nsaicodestudio.app://';
+        // UPDATED: Now points precisely to your IDE's URL Protocol
+        const DEEP_LINK_SCHEME = 'nsaicoder://vscode.google-authentication/';
 
         function handleRedirect() {
             const hash = window.location.hash;
@@ -198,7 +199,7 @@
             if (accessToken || type === 'recovery' || type === 'signup') {
                 // Construct deep link
                 // We pass the hash exactly as is so the app can parse it
-                const deepLink = `${DEEP_LINK_SCHEME}auth/callback${hash}`;
+                const deepLink = `${DEEP_LINK_SCHEME}auth${hash}`;
 
                 // 1. Attempt automatic redirect
                 window.location.href = deepLink;
